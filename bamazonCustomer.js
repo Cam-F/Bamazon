@@ -21,6 +21,24 @@ connection.connect(function (err) {
 
 // Display all items
 
+function displayProducts() {
+    connection.query("SELECT * FROM products", function (err, res) {
+        if (err) throw err;
+
+        for (var i = 0; i < res.length; i++) {
+            console.table([
+                {
+                    id: res[i].id,
+                    item_name: res[i].item_name,
+                    department: res[i].category,
+                    price: res[i].price,
+                    quantity: res[i].quantity
+                }
+            ])
+        }
+    });
+};
+
 // Prompt two messages
 //      1. ID of the item you would like to buy
 //      2. How many would you like to buy
