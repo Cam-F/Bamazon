@@ -25,17 +25,7 @@ function displayProducts() {
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
 
-        for (var i = 0; i < res.length; i++) {
-            console.table([
-                {
-                    id: res[i].id,
-                    item_name: res[i].item_name,
-                    department: res[i].category,
-                    price: res[i].price,
-                    quantity: res[i].quantity
-                }
-            ])
-        }
+        console.table(res);
     });
 };
 
