@@ -4,7 +4,7 @@ var inquirer = require("inquirer");
 var cTable = require("console.table");
 
 // Connection
-var connection = mysql.connection({
+var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
@@ -17,7 +17,7 @@ connection.connect(function (err) {
     if (err) throw err;
     console.log("Connected as ID: " + connection.threadId + "\n");
     displayProducts();
-})
+});
 
 // Display all items
 
